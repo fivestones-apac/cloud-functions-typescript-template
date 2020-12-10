@@ -1,9 +1,9 @@
 # Cloud Functions TypeScript Template
 
-With this template, you can write and deploy multiple [HTTP-triggered functions](https://cloud.google.com/functions/docs/writing/http) to Google Cloud Functions using TypeScript. For coding, please write your functions in `src/app.ts`.
+With this template, you can write and deploy multiple [HTTP-triggered functions](https://cloud.google.com/functions/docs/writing/http) to Google Cloud Functions. For coding, please write your functions in `src/app.ts`.
 
 ## Local Development
-The application runs functions using the Functions Framework, please refer to [here](https://cloud.google.com/functions/docs/running/function-frameworks) for reference.
+The application runs functions using the [Functions Framework](https://cloud.google.com/functions/docs/running/function-frameworks).
 
 If only one function is specified, it will be served at http://localhost:8080/ after running the below command.
 ```bash
@@ -11,7 +11,7 @@ npm install
 npm run watch --function=helloWorld
 ```
 
-Besided, you could have two functions running in the same time at different ports. 
+Besides, you could have two functions running in the same time at different ports. 
 ```bash
 npm install
 # helloWorld function will be served at default port http://localhost:8080/ 
@@ -21,7 +21,7 @@ npm run watch --function=echoReqHeaders --port=3000
 ```
 
 ## Cloud Function Deployment
-Before deployment, please confirmed you have installed the [Google Cloud SDK](https://cloud.google.com/sdk/docs/quickstart#installing_the_latest_version) and initialized the Cloud SDK.
+Before deployment, please confirm that you have installed the [Google Cloud SDK](https://cloud.google.com/sdk/docs/quickstart#installing_the_latest_version) and initialized the Cloud SDK.
 
 To deploy the local codebase to Cloud Function, please confirm your local gcloud SDK is selected the correct GCP project and run the below command.
 
