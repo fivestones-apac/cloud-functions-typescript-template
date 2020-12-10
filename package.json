@@ -1,13 +1,16 @@
 {
   "name": "cloud-functions-typescript-template",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "main": "build/app.js",
+  "config": {
+    "region": "asia-east2"
+  },
   "scripts": {
-    "start": "functions-framework --target=helloWorld",
-    "watch": "concurrently \"tsc -w\" \"nodemon --watch ./build/ --exec npm run start\"",
+    "start": "functions-framework --target=$npm_config_function --port=$npm_config_port",
+    "watch": "concurrently \"tsc -w\" \"nodemon --watch ./build/ --exec npm run start --function=$npm_config_function --port=${npm_config_port:-8080}\"",
     "build": "tsc -p .",
-    "deploy": "npm run build && gcloud functions deploy hello-world --env-vars-file .env.yaml --entry-point=helloWorld --runtime nodejs12 --trigger-http"
+    "deploy": "npm run build && gcloud functions deploy ${npm_config_endpoint:-$npm_config_function} --region=${npm_config_region:-$npm_package_config_region} --env-vars-file=.env.yaml --entry-point=$npm_config_function --runtime=nodejs12 --trigger-http"
   },
   "devDependencies": {
     "@tsconfig/node12": "^1.0.7",
